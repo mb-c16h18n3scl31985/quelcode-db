@@ -46,3 +46,18 @@ CREATE TABLE posts
     modified_at DATETIME NOT NULL,
     modified_user_id INTEGER REFERENCES users(user_id) NOT NULL
 );
+
+CREATE TABLE tasks
+(
+    task_id INTEGER PRIMARY KEY,
+    chatroom_id INTEGER REFERENCES chatrooms(chatroom_id),
+    task_content VARCHAR(1000) NOT NULL,
+    user_id_in_charge INTEGER REFERENCES users(user_id) NOT NULL,
+    limit_date_and_time TIMESTAMP,
+    is_completed TINYINT(1) DEFAULT 0 NOT NULL,
+    is_deleted TINYINT(1) DEFAULT 0 NOT NULL,
+    poseted_user_id INTEGER REFERENCES users(user_id) NOT NULL,
+    created_at DATETIME NOT NULL,
+    modified_at DATETIME NOT NULL,
+    modified_user_id INTEGER REFERENCES users(user_id) NOT NULL,
+);
