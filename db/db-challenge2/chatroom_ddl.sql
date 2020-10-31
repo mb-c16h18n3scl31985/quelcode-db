@@ -26,7 +26,7 @@ CREATE TABLE chatrooms
     modified_user_id INTEGER REFERENCES users(user_id) NOT NULL
 );
 
-CREATE TABLE chatroom_member
+CREATE TABLE chatroom_members
 (
     chatroom_id INTEGER REFERENCES chatrooms(chatroom_id) NOT NULL,
     user_id INTEGER REFERENCES users(user_id) NOT NULL,
