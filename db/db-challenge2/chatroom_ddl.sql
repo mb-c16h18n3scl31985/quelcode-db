@@ -24,4 +24,12 @@ CREATE TABLE chatrooms
     created_user_id INTEGER REFERENCES users(user_id) NOT NULL,
     modified_at DATETIME NOT NULL,
     modified_user_id INTEGER REFERENCES users(user_id) NOT NULL
-)
+);
+
+CREATE TABLE chatroom_member
+(
+    chatroom_id INTEGER REFERENCES chatrooms(chatroom_id) NOT NULL,
+    user_id INTEGER REFERENCES users(user_id) NOT NULL,
+    joined_at TIMESTAMP NOT NULL,
+    PRIMARY KEY(chatroom_id,user_id)
+);
