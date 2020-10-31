@@ -33,3 +33,16 @@ CREATE TABLE chatroom_members
     joined_at TIMESTAMP NOT NULL,
     PRIMARY KEY(chatroom_id,user_id)
 );
+
+CREATE TABLE posts
+(
+    post_id INTEGER PRIMARY KEY,
+    posted_chatroom_id INTEGER REFERENCES chatrooms(chatroom_id),
+    poseted_user_id INTEGER REFERENCES users(user_id) NOT NULL,
+    post_content VARCHAR(1000) NOT NULL,
+    attachment_name VARCHAR(100),
+    is_deleted TINYINT(1) DEFAULT 0 NOT NULL,
+    created_at DATETIME NOT NULL,
+    modified_at DATETIME NOT NULL,
+    modified_user_id INTEGER REFERENCES users(user_id) NOT NULL
+);
