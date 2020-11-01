@@ -5,9 +5,9 @@ CREATE TABLE users
     password VARCHAR(100) NOT NULL,
     display_name VARCHAR(100),
     profile VARCHAR(1000),
+    is_deleted TINYINT(1) DEFAULT 0, -- 1:削除済み
     created_at DATETIME,
     modified_t DATETIME,
-    is_deleted TINYINT(1) DEFAULT 0, -- 1:削除済み
     office_phone VARCHAR(13),
     mobile_phone VARCHAR(13)
 );
@@ -38,11 +38,11 @@ CREATE TABLE posts
 (
     post_id INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
     posted_chatroom_id INTEGER(11) REFERENCES chatrooms(chatroom_id),
-    poseted_user_id INTEGER(11) REFERENCES users(user_id) NOT NULL,
     post_content VARCHAR(1000) NOT NULL,
     attachment_name VARCHAR(100),
     is_deleted TINYINT(1) DEFAULT 0 NOT NULL, -- 1:削除済み
     created_at DATETIME NOT NULL,
+    created_user_id INTEGER(11) REFERENCES users(user_id) NOT NULL,
     modified_at DATETIME NOT NULL,
     modified_user_id INTEGER(11) REFERENCES users(user_id) NOT NULL
 );
@@ -56,8 +56,8 @@ CREATE TABLE tasks
     limit_date_and_time TIMESTAMP,
     is_completed TINYINT(1) DEFAULT 0 NOT NULL, -- 1:完了
     is_deleted TINYINT(1) DEFAULT 0 NOT NULL, -- 1:削除済み
-    poseted_user_id INTEGER(11) REFERENCES users(user_id) NOT NULL,
     created_at DATETIME NOT NULL,
+    created_user_id INTEGER(11) REFERENCES users(user_id) NOT NULL,
     modified_at DATETIME NOT NULL,
     modified_user_id INTEGER(11) REFERENCES users(user_id) NOT NULL,
 );
