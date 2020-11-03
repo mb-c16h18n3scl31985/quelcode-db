@@ -6,8 +6,8 @@ CREATE TABLE users
     display_name VARCHAR(100)  NOT NULL,
     profile VARCHAR(1000),
     is_deleted TINYINT(1) DEFAULT 0, -- 1:削除済み
-    created_at DATETIME,
-    modified_at DATETIME,
+    created_at DATETIME NOT NULL,
+    modified_at DATETIME NOT NULL,
     office_phone VARCHAR(13),
     mobile_phone VARCHAR(13)
 );
