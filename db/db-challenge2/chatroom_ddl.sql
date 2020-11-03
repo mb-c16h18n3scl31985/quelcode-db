@@ -30,7 +30,7 @@ CREATE TABLE chatroom_members
 (
     chatroom_id INTEGER(11) REFERENCES chatrooms(chatroom_id) NOT NULL,
     user_id INTEGER(11) REFERENCES users(user_id) NOT NULL,
-    joined_at TIMESTAMP NOT NULL,
+    joined_at DATETIME NOT NULL,
     PRIMARY KEY(chatroom_id,user_id)
 );
 
