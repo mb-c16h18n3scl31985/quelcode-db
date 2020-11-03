@@ -6,7 +6,7 @@ CREATE TABLE users
     display_name VARCHAR(100)  NOT NULL,
     profile VARCHAR(1000),
     is_deleted TINYINT(1) DEFAULT 0, -- 1:削除済み
-    created_at DATETIME NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     modified_at DATETIME NOT NULL,
     office_phone VARCHAR(13),
     mobile_phone VARCHAR(13)
@@ -20,7 +20,7 @@ CREATE TABLE chatrooms
     is_enabled_file_upload TINYINT(1) DEFAULT 1 NOT NULL, -- 1:ファイルアップロード可能
     is_direct_chat TINYINT(1) DEFAULT 0 NOT NULL, --  1:ダイレクトチャット
     is_deleted TINYINT(1) DEFAULT 0 NOT NULL, -- 1:削除済み
-    created_at DATETIME NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     created_user_id INTEGER(11) NOT NULL,
     modified_at DATETIME NOT NULL,
     modified_user_id INTEGER(11)  NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE posts
     content VARCHAR(1000) NOT NULL,
     attachment_name VARCHAR(100),
     is_deleted TINYINT(1) DEFAULT 0 NOT NULL, -- 1:削除済み
-    created_at DATETIME NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     created_user_id INTEGER(11) NOT NULL,
     modified_at DATETIME NOT NULL,
     modified_user_id INTEGER(11) NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE tasks
     limited_at DATETIME,
     is_completed TINYINT(1) DEFAULT 0 NOT NULL, -- 1:完了
     is_deleted TINYINT(1) DEFAULT 0 NOT NULL, -- 1:削除済み
-    created_at DATETIME NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     created_user_id INTEGER(11)  NOT NULL,
     modified_at DATETIME NOT NULL,
     modified_user_id INTEGER(11) NOT NULL,
