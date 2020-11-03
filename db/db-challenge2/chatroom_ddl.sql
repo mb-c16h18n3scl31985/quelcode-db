@@ -7,7 +7,7 @@ CREATE TABLE users
     profile VARCHAR(1000),
     is_deleted TINYINT(1) DEFAULT 0, -- 1:削除済み
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    modified_at DATETIME NOT NULL,
+    modified_at DATETIME ON UPDATE CURRENT_TIMESTAMP NOT NULL,
     office_phone VARCHAR(13),
     mobile_phone VARCHAR(13)
 );
@@ -22,7 +22,7 @@ CREATE TABLE chatrooms
     is_deleted TINYINT(1) DEFAULT 0 NOT NULL, -- 1:削除済み
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     created_user_id INTEGER(11) NOT NULL,
-    modified_at DATETIME NOT NULL,
+    modified_at DATETIME ON UPDATE CURRENT_TIMESTAMP NOT NULL,
     modified_user_id INTEGER(11)  NOT NULL,
     FOREIGN KEY chatroom_id REFERENCES chatrooms(id),
     FOREIGN KEY user_id REFERENCES users(id),
@@ -47,7 +47,7 @@ CREATE TABLE posts
     is_deleted TINYINT(1) DEFAULT 0 NOT NULL, -- 1:削除済み
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     created_user_id INTEGER(11) NOT NULL,
-    modified_at DATETIME NOT NULL,
+    modified_at DATETIME ON UPDATE CURRENT_TIMESTAMP NOT NULL,
     modified_user_id INTEGER(11) NOT NULL,
     FOREIGN KEY chatroom_id REFERENCES chatrooms(id),
     FOREIGN KEY created_user_id REFERENCES users(id),
@@ -65,7 +65,7 @@ CREATE TABLE tasks
     is_deleted TINYINT(1) DEFAULT 0 NOT NULL, -- 1:削除済み
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     created_user_id INTEGER(11)  NOT NULL,
-    modified_at DATETIME NOT NULL,
+    modified_at DATETIME ON UPDATE CURRENT_TIMESTAMP NOT NULL,
     modified_user_id INTEGER(11) NOT NULL,
     FOREIGN KEY chatroom_id REFERENCES chatrooms(id),
     FOREIGN KEY user_id REFERENCES users(id),
