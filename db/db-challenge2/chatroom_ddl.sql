@@ -14,8 +14,8 @@ CREATE TABLE users
 
 CREATE TABLE chatrooms
 (
-    chatroom_id INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
-    chatroom_name VARCHAR(100) NOT NULL,
+    id INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
     description VARCHAR(1000),
     is_enabled_file_upload TINYINT(1) DEFAULT 1 NOT NULL, -- 1:ファイルアップロード可能
     is_direct_chat TINYINT(1) DEFAULT 0 NOT NULL, --  1:ダイレクトチャット
