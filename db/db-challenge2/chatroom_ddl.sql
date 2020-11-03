@@ -7,7 +7,7 @@ CREATE TABLE users
     profile VARCHAR(1000),
     is_deleted TINYINT(1) DEFAULT 0, -- 1:削除済み
     created_at DATETIME,
-    modified_t DATETIME,
+    modified_at DATETIME,
     office_phone VARCHAR(13),
     mobile_phone VARCHAR(13)
 );
