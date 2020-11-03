@@ -1,9 +1,9 @@
 CREATE TABLE users
 (
-    user_id INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
+    id INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
     mail VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL,
-    display_name VARCHAR(100),
+    display_name VARCHAR(100)  NOT NULL,
     profile VARCHAR(1000),
     is_deleted TINYINT(1) DEFAULT 0, -- 1:削除済み
     created_at DATETIME,
