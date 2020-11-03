@@ -36,7 +36,7 @@ CREATE TABLE chatroom_members
 
 CREATE TABLE posts
 (
-    post_id INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
+    id INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
     chatroom_id INTEGER(11) REFERENCES chatrooms(chatroom_id),
     content VARCHAR(1000) NOT NULL,
     attachment_name VARCHAR(100),
