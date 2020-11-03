@@ -49,11 +49,11 @@ CREATE TABLE posts
 
 CREATE TABLE tasks
 (
-    task_id INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
+    id INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
     chatroom_id INTEGER(11) REFERENCES chatrooms(chatroom_id),
     content VARCHAR(1000) NOT NULL,
-    user_id_in_charge INTEGER REFERENCES users(user_id) NOT NULL,
-    limit_date_and_time TIMESTAMP,
+    user_id INTEGER REFERENCES users(user_id) NOT NULL,
+    limited_at DATETIME,
     is_completed TINYINT(1) DEFAULT 0 NOT NULL, -- 1:完了
     is_deleted TINYINT(1) DEFAULT 0 NOT NULL, -- 1:削除済み
     created_at DATETIME NOT NULL,
