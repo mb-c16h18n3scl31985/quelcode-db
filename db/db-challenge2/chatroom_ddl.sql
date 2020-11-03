@@ -3,7 +3,7 @@ CREATE TABLE users
     id INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
     mail VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL,
-    display_name VARCHAR(100)  NOT NULL,
+    display_name VARCHAR(100) NOT NULL,
     profile VARCHAR(1000),
     is_deleted TINYINT(1) DEFAULT 0, -- 1:削除済み
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE tasks
     id INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
     chatroom_id INTEGER(11),
     content VARCHAR(1000) NOT NULL,
-    user_id INTEGER NOT NULL,
+    responsible_user_id INTEGER NOT NULL,
     limited_at DATETIME,
     is_completed TINYINT(1) DEFAULT 0 NOT NULL, -- 1:完了
     is_deleted TINYINT(1) DEFAULT 0 NOT NULL, -- 1:削除済み
@@ -68,7 +68,7 @@ CREATE TABLE tasks
     modified_at DATETIME ON UPDATE CURRENT_TIMESTAMP NOT NULL,
     modified_user_id INTEGER(11) NOT NULL,
     FOREIGN KEY chatroom_id REFERENCES chatrooms(id),
-    FOREIGN KEY user_id REFERENCES users(id),
+    FOREIGN KEY respomsible_user_id REFERENCES users(id),
     FOREIGN KEY created_user_id REFERENCES users(id),
     FOREIGN KEY modified_user_id REFERENCES users(id)
 );
