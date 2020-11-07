@@ -24,8 +24,8 @@ CREATE TABLE chatrooms
     created_user_id INTEGER(11) NOT NULL,
     modified_at DATETIME ON UPDATE CURRENT_TIMESTAMP NOT NULL,
     modified_user_id INTEGER(11)  NOT NULL,
-    FOREIGN KEY chatroom_id REFERENCES chatrooms(id),
-    FOREIGN KEY user_id REFERENCES users(id),
+    FOREIGN KEY created_user_id REFERENCES users(id),
+    FOREIGN KEY modified_user_id REFERENCES users(id)
 );
 
 CREATE TABLE chatroom_members
@@ -68,7 +68,7 @@ CREATE TABLE tasks
     modified_at DATETIME ON UPDATE CURRENT_TIMESTAMP NOT NULL,
     modified_user_id INTEGER(11) NOT NULL,
     FOREIGN KEY chatroom_id REFERENCES chatrooms(id),
-    FOREIGN KEY respomsible_user_id REFERENCES users(id),
+    FOREIGN KEY responsible_user_id REFERENCES users(id),
     FOREIGN KEY created_user_id REFERENCES users(id),
     FOREIGN KEY modified_user_id REFERENCES users(id)
 );
