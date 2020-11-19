@@ -1,5 +1,5 @@
 SELECT chatrooms.name,
-    users.diplay_name,
+    users.display_name,
     posts.created_at
 FROM posts
     LEFT JOIN users ON users.id = posts.created_user_id
