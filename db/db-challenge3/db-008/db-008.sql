@@ -6,4 +6,4 @@ FROM chatroom_members
     JOIN chatrooms ON chatroom_members.chatroom_id = chatrooms.id
 WHERE users.is_deleted = 0
     AND chatrooms.is_deleted=0
-ORDER BY joined_at DESC;
+ORDER BY joined_at;
