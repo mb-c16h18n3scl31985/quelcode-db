@@ -1,6 +1,7 @@
 SELECT users.display_name AS '参加しているユーザー名',
     chatrooms.name AS '参加しているチャットルーム名',
-    CAST(chatroom_members.joined_at AS DATE) AS '参加日時'
+    /* CAST(chatroom_members.joined_at AS DATE) AS '参加日時' */
+    DATE_FORMAT(chatroom_members.joined_at,'%Y年%c月%e日') AS '参加日時'
 FROM chatroom_members
     JOIN users ON chatroom_members.user_id= users.id
     JOIN chatrooms ON chatroom_members.chatroom_id = chatrooms.id
