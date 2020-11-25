@@ -3,7 +3,7 @@ BEGIN;
     SET is_enabled_file_upload = 0, modified_at=NOW(), modified_user_id = 1
     WHERE chatrooms.id NOT IN
     (SELECT chatrooms_alias.id
-        FROM (SELECT idFROM chatrooms)AS chatrooms_alias
+        FROM (SELECT id FROM chatrooms)AS chatrooms_alias
         /*ERROR1093 回避のためのエイリアス*/
         JOIN chatroom_members ON chatrooms_alias.id = chatroom_members.chatroom_id
         WHERE chatroom_members.user_id=1)
