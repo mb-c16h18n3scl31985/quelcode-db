@@ -2,7 +2,7 @@ BEGIN;
     UPDATE chatrooms
         SET is_enabled_file_upload = 0, modified_at=NOW(),modified_user_id = 1
         WHERE chatrooms.id NOT IN 
-        (SELECT DISTINCT chatroom_id FROM chatroom_members WHERE user_id=1)
+        (SELECT DISTINCT chatroom_id FROM chatroom_members WHERE user_id=1);
     COMMIT;
 
 /*
