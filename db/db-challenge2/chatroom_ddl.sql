@@ -24,8 +24,8 @@ CREATE TABLE chatrooms
     created_user_id INTEGER(11) NOT NULL,
     modified_at DATETIME ON UPDATE CURRENT_TIMESTAMP NOT NULL,
     modified_user_id INTEGER(11)  NOT NULL,
-    FOREIGN KEY created_user_id REFERENCES users(id),
-    FOREIGN KEY modified_user_id REFERENCES users(id)
+    FOREIGN KEY (created_user_id) REFERENCES users(id),
+    FOREIGN KEY (modified_user_id) REFERENCES users(id)
 );
 
 CREATE TABLE chatroom_members
@@ -34,8 +34,8 @@ CREATE TABLE chatroom_members
     user_id INTEGER(11) NOT NULL,
     joined_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     PRIMARY KEY(chatroom_id,user_id),
-    FOREIGN KEY chatroom_id REFERENCES chatrooms(id),
-    FOREIGN KEY user_id REFERENCES users(id)
+    FOREIGN KEY (chatroom_id) REFERENCES chatrooms(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 CREATE TABLE posts
@@ -49,9 +49,9 @@ CREATE TABLE posts
     created_user_id INTEGER(11) NOT NULL,
     modified_at DATETIME ON UPDATE CURRENT_TIMESTAMP NOT NULL,
     modified_user_id INTEGER(11) NOT NULL,
-    FOREIGN KEY chatroom_id REFERENCES chatrooms(id),
-    FOREIGN KEY created_user_id REFERENCES users(id),
-    FOREIGN KEY modified_user_id REFERENCES users(id)
+    FOREIGN KEY (chatroom_id) REFERENCES chatrooms(id),
+    FOREIGN KEY (created_user_id) REFERENCES users(id),
+    FOREIGN KEY (modified_user_id) REFERENCES users(id)
 );
 
 CREATE TABLE tasks
@@ -67,8 +67,8 @@ CREATE TABLE tasks
     created_user_id INTEGER(11)  NOT NULL,
     modified_at DATETIME ON UPDATE CURRENT_TIMESTAMP NOT NULL,
     modified_user_id INTEGER(11) NOT NULL,
-    FOREIGN KEY chatroom_id REFERENCES chatrooms(id),
-    FOREIGN KEY responsible_user_id REFERENCES users(id),
-    FOREIGN KEY created_user_id REFERENCES users(id),
-    FOREIGN KEY modified_user_id REFERENCES users(id)
+    FOREIGN KEY (chatroom_id) REFERENCES chatrooms(id),
+    FOREIGN KEY (responsible_user_id) REFERENCES users(id),
+    FOREIGN KEY (created_user_id) REFERENCES users(id),
+    FOREIGN KEY (modified_user_id) REFERENCES users(id)
 );
