@@ -1,12 +1,12 @@
 /* is_deleted = 1のuser_id かつ is_deleted = 1のchatroom_idのみ削除する命令文 */
 BEGIN;
-    SELECT *
+    DELETE
     FROM chatroom_members
-        LEFT JOIN chatrooms ON chatrooms.id=chatroom_members.chatroom_id
+    LEFT JOIN chatrooms ON chatrooms.id=chatroom_members.chatroom_id
         LEFT JOIN users ON users.id=chatroom_members.user_id
     WHERE chatrooms.is_deleted = 1
         AND users.is_deleted=1;
-    COMMIT;
+COMMIT;
 
 /*
 is_deleted = 1のuserのレコードを全て破棄する命令文
